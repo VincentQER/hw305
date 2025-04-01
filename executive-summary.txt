@@ -1,0 +1,45 @@
+Assignment name: Assignment 1
+TCSS 305 A: Programming Practicum, Fall 2023
+
+Name: Vincent Xu
+UWNetID: 2474448
+
+
+Assignment Overview:
+This assignment is about creating two classes, Clock and ClockShop, to practice object-oriented programming and things like handling errors, managing time, and sorting objects.
+The Clock class represents a digital clock that tracks hours, minutes, and seconds. You'll write two constructors—one that sets the clock to 23:58:00 by default, and another that lets you pass in specific hour, minute, and second values. You'll also need to add methods to get and set each part of the time, but you have to ensure the values are within the proper ranges (hours from 0 to 23, for example). If they're not, you throw an error. There's also functionality to advance the time, and you'll override toString() to display the time in a "hh:mm:ss"format. Finally, you'll add equals() and compareTo() methods so that clock objects can be compared and checked for equality.
+The ClockShop class is all about managing a list of clocks. It uses an ArrayList to store multiple Clock objects and has methods to load clocks from a file, search for specific clocks, sort them by time, and access or replace clocks by their index in the list. Also we need to write the clock data to a file and return a string that shows all the clocks in the shop.
+This assignment involves working with classes and objects, handling files, and ensuring you can compare and sort custom objects. It's a good way to practice organizing your code and using object-oriented principles like encapsulation and modular design.
+
+
+Technical Impression:
+I started with the Clock class, where I set up attributes for hours, minutes, and seconds. I also added getter and setter methods, including checks to ensure the values are valid (like ensuring hours are between 0 and 23, and minutes and seconds are between 0 and 59).
+Next, I implemented the ClockShop class, which acts as a container for multiple Clock objects. One of its key methods is fillClockShop, which reads time data from a file. I used a Scanner with specific delimiters to accurately parse the hours, minutes, and seconds from the input file. The ClockShop class also includes methods for adding clocks to the collection, finding specific clocks, and sorting the clocks based on time. I used a bubble sort algorithm to arrange the clocks in ascending order, which helped reinforce my understanding of comparing objects in Java.
+I faced several challenges, particularly with setting up the Scanner delimiters and ensuring that the clocks were read correctly from the file. When I run the ClockShopTest code that showed te"FAILED five clock file" test, which turned out to be due to the toString method in my Clock class adding a leading zero when hours, minutes, or seconds were less than 10. This mistake led to confusion and errors, causing me to spend a long time troubleshooting. Additionally, I struggled to remember how to use the try-catch functionality, which caused my code to fail to run testcode correctly and resulted in persistent error messages. 
+
+Overall, this assignment deepened my understanding of Java's time handling, file I/O, and object-oriented programming concepts while also reinforcing the importance of properly reading and manipulating data in real-world applications.
+
+Unresolved problems in my submission:
+I'm experiencing issues with SpotBugs in IntelliJ, as it continuously reminds me that the plugin is not a JetBrains product, and I haven't been able to resolve this.
+Additionally, when running the PMD check, it flagged the compareTo method in my Clock class, indicating that I should avoid using negation within an "if" expression that has an accompanying "else" clause. I'm currently looking for a more efficient and clearer way to improve this part of my code.
+
+
+
+Citations and Collaborations:
+I spent around 20 hours get this project done. Throughout the process, I visited the learning center several times to discuss various issues with tutors(I can't remmber what Tutor name is), particularly regarding file handling, character reading, and implementing error handling with try-catch blocks.
+
+https://www.geeksforgeeks.org/scanner-delimiter-method-in-java-with-examples/
+https://www.w3schools.com/java/java_user_input.asp
+https://stackoverflow.com/questions/15218542/get-correct-local-time-in-java-calendar
+https://www.codeproject.com/Articles/5354046/How-to-Convert-an-Instant-to-LocalDateTime-or-Loca
+https://youtu.be/kjzmaJPoaNc?si=6tODAL-Wh2NAweXw
+
+Extra Credit:
+I did both.
+ I set the Scanner to use a combination of colons (:) and newlines (\n) as delimiters, along with any surrounding whitespace. I used the pattern \\s*:\\s*|\\s*\\n\\s* to ensure the Scanner correctly splits the input when reading hours, minutes, and seconds from the file.
+Regarding the setToCurrentTime() method in the Clock class, I uses the Calendar class to retrieve the current system time and updates the Clock object's hours, minutes, and seconds accordingly.
+For the testSetToCurrentTime() method, I initialize a new Clock object and set its time to the current system time. I then retrieve the system time using Instant.now() and convert it to a LocalTime object. The test compares the time in myClock with a new Clock object that is also set to the current system time.
+The test code verifies if myClock correctly reflect system's current time. If both clocks match, the test passes; if not, the test fails and prints the current time for verification.
+
+Questions:
+none 
